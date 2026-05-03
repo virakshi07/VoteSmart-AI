@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #1E3A8A;
+  --color-secondary: #0ea5e9;
+  --color-accent: #f59e0b;
+  --color-ai: #8b5cf6; /* Purple for AI */
+  
+  --font-sans: 'Outfit', 'Inter', system-ui, sans-serif;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    @apply transition-colors duration-500;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl border border-white/20 dark:border-slate-700/30 shadow-xl;
+  }
+  
+  .glass-dark {
+    @apply bg-slate-900/80 backdrop-blur-2xl border border-slate-700/50 shadow-2xl;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary dark:from-secondary dark:to-ai;
+  }
+
+  .bg-gradient-ai {
+    @apply bg-gradient-to-br from-primary via-secondary to-ai;
+  }
+
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+  }
+
+  .animate-shake {
+    animation: shake 0.2s ease-in-out 0s 2;
+  }
+}
